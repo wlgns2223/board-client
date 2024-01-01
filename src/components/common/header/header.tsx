@@ -2,16 +2,14 @@ import Logo from "@/assets/logo.svg";
 import Icon from "../../util/icon";
 import LoginButton from "./login-button";
 import Image from "next/image";
+import Link from "next/link";
+import MyLink from "../link/my-link";
+import Nav from "./nav";
 
 export default function Header() {
     return (
         <header className=" p-4 bg-blue-50 ">
-            <nav className="max-w-screen-xl mx-auto w-full h-full flex justify-between items-center ">
-                <Icon className="w-12 h-12 ">
-                    <Logo />
-                </Icon>
-                <LoginButton />
-            </nav>
+            <Nav />
             <section className="flex flex-col justify-center items-center mt-8 overflow-hidden">
                 <h1 className="sr-only">{"메인 페이지"}</h1>
                 <div className="text-4xl font-bold ">

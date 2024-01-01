@@ -34,7 +34,6 @@ export default function Home() {
                     <IntroSection key={section.text.str} {...section} />
                 ))}
             </main>
-            <Footer />
         </>
     );
 }
