@@ -1,12 +1,12 @@
 "use client";
 
-import { Input } from "@material-tailwind/react";
+import { Input, InputProps } from "@material-tailwind/react";
 import { HTMLInputTypeAttribute } from "react";
 
 export type TInput = {
     label: string;
     type?: HTMLInputTypeAttribute;
 };
-export default function MyInput({ label, ...rest }: TInput) {
-    return <Input {...rest} label={label} crossOrigin={undefined} />;
+export default function MyInput({ ...rest }: TInput) {
+    return <Input {...rest} crossOrigin={undefined} />;
 }
