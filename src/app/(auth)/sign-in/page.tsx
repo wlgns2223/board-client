@@ -1,8 +1,6 @@
 import Link from "next/link";
-import MyInput from "../../components/atom/input";
-import MyButton from "../../components/atom/my-button";
-import { PATH } from "../../core/path";
-import LoginForm from "../../components/login/loginForm";
+import { PATH } from "../../../core/path";
+import LoginForm from "../../../components/signin/loginForm";
 
 export default function SignInPage() {
     return (

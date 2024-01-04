@@ -9,7 +9,7 @@ export default function SignInLayout({ children }: PropsWithChildren) {
             <header className=" p-4 bg-blue-50 ">
                 <Nav />
             </header>
-            <main className="max-w-screen-xl mx-auto min-h-screen p-4 ">{children}</main>;
+            <main className="max-w-screen-xl mx-auto min-h-screen p-4 ">{children}</main>
         </>
     );
 }
