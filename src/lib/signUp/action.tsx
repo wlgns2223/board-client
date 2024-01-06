@@ -1,26 +1,30 @@
 "use server";
 
-import { CreateUserDto, TCreateUserDto } from "./dto";
+import { TFormResult } from "../../core/types/common";
+import { signUpDto, TSignUpDto } from "./dto";
 
-export const signUp = (prev: any, formData: FormData) => {
-    const data = Object.fromEntries(formData.entries());
-
-    console.log({ prev });
-
-    const result = CreateUserDto.safeParse({
+export const signUp = (prev: any, formData: FormData): TFormResult<TSignUpDto> => {
+    const result = signUpDto.safeParse({
         email: formData.get("email"),
         password: formData.get("password"),
         nickname: formData.get("nickname"),
     });
 
-    if (true) {
+    if (!result.success) {
         return {
             ok: false,
+            data: null,
             message: "validation fail",
         };
     }
 
+    /**
+     * some backend logics... if this app has its own backend
+     */
+
     return {
-        ...data,
+        data: result.data,
+        message: "",
+        ok: true,
     };
 };
