@@ -10,10 +10,9 @@ const signUp = async (dto: TSignUpDto) => {
 export const useSignUp = () => {
     const mutationHook = useMutation({
         mutationFn: async (dto: TSignUpDto) => {
-            const res = await axiosInstance.post(API.users.base, dto);
-            console.log(res);
+            const res = await axiosInstance.post<TSignUpResponseData>(API.users.base, dto);
 
-            return res;
+            return res.data;
         },
     });
     return mutationHook;

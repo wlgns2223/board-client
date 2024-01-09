@@ -28,9 +28,23 @@ export default function SignUpForm() {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const result = zSignUpDto.safeParse(signUpDto);
+        const passwordIsNotSame = signUpDto.password !== repassword;
+        if (passwordIsNotSame) {
+            alert("패스워드가 다릅니다.");
+            return;
+        }
+
         if (result.success) {
-            console.log("call");
-            signUpMu(result.data);
+            signUpMu(result.data, {
+                onSuccess: (data) => {
+                    setSignUpDto(zSignUpInput.parse({}));
+                    alert("성공");
+                },
+                onError(error) {
+                    console.error(error);
+                    alert("계정생성 실패");
+                },
+            });
         } else {
             console.log("validate fail");
             console.dir(result.error);
